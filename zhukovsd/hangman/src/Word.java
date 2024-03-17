@@ -22,5 +22,5 @@ class Word {
     };
     static String chooseWord() {
         return words[new Random().nextInt(words.length)];
-    };
+    }
 }

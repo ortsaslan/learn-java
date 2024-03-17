@@ -50,6 +50,9 @@ class Game {
             if (isGuessFail) {
                 failCounter += 1;
             }
+            // Clear console for displaying game status statically (not work in IDEs)
+            System.out.print("\033[H\033[2J");
+            System.out.flush();
         }
         // Display game's result
         System.out.println(gameResult);
