@@ -19,7 +19,7 @@ class Game {
             // Define counters for decreasing underscores and failed guesses
             int blanksCounter = wordLength;
             int failCounter = 0;
-            int maxFailedAttempts = Art.hangmanPics.length - 1;
+            int maxAttemptsToFail = Art.hangmanPics.length - 1;
             // Define list of entered letters
             ArrayList<Character> enteredLetters = new ArrayList<>();
             // Define var for final game result
@@ -30,9 +30,9 @@ class Game {
                 System.out.println(Art.hangmanPics[failCounter]);
                 System.out.println("Secret word: " + String.valueOf(hiddenWord));
                 System.out.println("Entered letters: " + String.valueOf(enteredLetters));
-                System.out.println("Failed attempts: " + failCounter + " from " + maxFailedAttempts);
+                System.out.println("Failed attempts: " + failCounter + " from " + maxAttemptsToFail);
                 // Check if fails reach max amount
-                if (failCounter == maxFailedAttempts) {
+                if (failCounter == maxAttemptsToFail) {
                     gameResult = "Game Over! Player was hanged!";
                     break;
                 }
