@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 class Game {
     static void startHangmanGame() {
+        // Define common game loop
         while (true) {
             // Define Scanner object for input
             Scanner scanner = new Scanner(System.in);
@@ -23,7 +24,7 @@ class Game {
             ArrayList<Character> enteredLetters = new ArrayList<>();
             // Define var for final game result
             String gameResult;
-            // Define main game loop
+            // Define inner loop for specific word guessing
             while (true) {
                 // Display game state: art, hidden word, fails
                 System.out.println(Art.hangmanPics[failCounter]);
