@@ -1,10 +1,11 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
 class Game {
     static void startHangmanGame() {
         // Print games title
-        System.out.println(Art.title);
+        System.out.println("HANGMAN game welcomes you!");
         // Randomly choose one word from dictionary
         String secretWord = Word.chooseWord();
         int wordLength = secretWord.length();
@@ -14,17 +15,22 @@ class Game {
         // Define counters for decreasing underscores and failed guesses
         int blanksCounter = wordLength;
         int failCounter = 0;
+        int maxFailedAttempts = Art.hangmanPics.length - 1;
+        // Define list of entered letters
+        ArrayList<Character> enteredLetters = new ArrayList<>();
         // Define var for final game result
         String gameResult;
         // Define Scanner object for input
         Scanner scanner = new Scanner(System.in);
         // Define main game loop
         while (true) {
-            // Display game state art and hidden word
+            // Display game state: art, hidden word, fails
             System.out.println(Art.hangmanPics[failCounter]);
-            System.out.println(hiddenWord);
+            System.out.println("Secret word: " + String.valueOf(hiddenWord));
+            System.out.println("Entered letters: " + String.valueOf(enteredLetters));
+            System.out.println("Failed attempts: " + failCounter + " from " + maxFailedAttempts);
             // Check if fails reach max amount
-            if (failCounter == Art.hangmanPics.length - 1) {
+            if (failCounter == maxFailedAttempts) {
                 gameResult = "Game Over! Player was hanged!";
                 break;
             }
@@ -34,9 +40,11 @@ class Game {
                 break;
             }
             // Take guess
-            System.out.print("\nGuess a letter: ");
+            System.out.println("===============");
+            System.out.print("Guess a letter: ");
             String guess = scanner.next();
             char guessedLetter = guess.charAt(0);
+            enteredLetters.add(guessedLetter);
             // Replace underscores by letters if guess right
             boolean isGuessFail = true;
             for (int i = 0; i < wordLength; i++) {

@@ -1,9 +1,4 @@
 class Art {
-    static String title = """
-    H-A-N-G-M-A-N
-    =====GAME====
-    """;
-
     static String[] hangmanPics = {"""
   +---+
   |   |
