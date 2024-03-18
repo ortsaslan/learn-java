@@ -60,7 +60,8 @@ class Game {
                 if (isGuessFail) {
                     failCounter += 1;
                 }
-                // Clear console for displaying game status statically (not work in IDEs)
+                // Clear console, display game status in one instance (refresh, not add)
+                // Not work in IDEs, only in system terminal
                 System.out.print("\033[H\033[2J");
                 System.out.flush();
             }
